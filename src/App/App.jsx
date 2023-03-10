@@ -5,14 +5,15 @@ import { current } from 'redux/users/users-operations';
 import PublicRoute from 'components/PublicRoute/PublicRoute';
 import PrivateRoute from 'components/PrivateRoute/PrivateRoute';
 import Layout from 'components/Layout/Layout';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
 const RegisterPage = lazy(() => import('../pages/RegisterPage/RegisterPage'));
 const LoginPage = lazy(() => import('../pages/LoginPages/LoginPages'));
 const ContactPage = lazy(() => import('../pages/ContactPage/ContactPage'));
 const NotFoundPage = lazy(() => import('../pages/NotFoundPage/NotFoundPage'));
-// import { ToastContainer } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
+
 
 export default function App() {
   const dispatch = useDispatch();
@@ -38,6 +39,7 @@ export default function App() {
           </Route>
         </Routes>
       </Suspense>
+      <ToastContainer/>
     </div>
   );
 }
