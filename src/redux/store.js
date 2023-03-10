@@ -1,10 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
-import contactsReducer from './contacts/contactsSlice';
-import filterReducer from './filter.slice';
+import { persistStore } from 'redux-persist';
+import logger from 'redux-logger';
+import thunk from 'redux-thunk';
+import rootReducer from './root-reducer';
 
 export const store = configureStore({
-  reducer: {
-    contacts: contactsReducer,
-    filter: filterReducer,
-  },
+  reducer: rootReducer,
+  middleware: [thunk, logger],
 });
+export const persistor = persistStore(store);

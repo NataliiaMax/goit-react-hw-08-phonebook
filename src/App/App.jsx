@@ -1,35 +1,43 @@
-import ContactForm from '../components/AddForm/AddForm';
-import ContactList from '../components/ContactList/ContactList';
-import Filter from '../components/Filter/Filter';
-import style from './App.module.css';
-import { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { fetchContacts } from 'redux/contacts/contacts-operations';
+import { lazy, Suspense, useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { current } from 'redux/users/users-operations';
+import PublicRoute from 'components/PublicRoute/PublicRoute';
+import PrivateRoute from 'components/PrivateRoute/PrivateRoute';
+import Layout from 'components/Layout/Layout';
+
+const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
+const RegisterPage = lazy(() => import('../pages/RegisterPage/RegisterPage'));
+const LoginPage = lazy(() => import('../pages/LoginPages/LoginPages'));
+const ContactPage = lazy(() => import('../pages/ContactPage/ContactPage'));
+const NotFoundPage = lazy(() => import('../pages/NotFoundPage/NotFoundPage'));
+// import { ToastContainer } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
 
 export default function App() {
   const dispatch = useDispatch();
-  const addedContacts = useSelector(state => state.contacts.contacts);
-  const isLoading = useSelector(state => state.contacts.isLoading);
-  const error = useSelector(state => state.contacts.error);
 
   useEffect(() => {
-    dispatch(fetchContacts());
+    dispatch(current());
   }, [dispatch]);
+
   return (
-    <div className={style.container}>
-      <h1 className={style.titleBook}>Phonebook</h1>
-      <ContactForm />
-      <h2 className={style.titleContacts}>Contacts</h2>
-      <Filter />
-      {error && <h2>Error...</h2>}
-      {isLoading && <h3>Loading...</h3>}
-      {addedContacts.length > 0 ? (
-        <>
-          <ContactList />
-        </>
-      ) : (
-        <h2>You have not added contacts yet</h2>
-      )}
+    <div>
+      <Suspense fallback={<p>...loading</p>}>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<HomePage />} />
+            <Route element={<PublicRoute />}>
+              <Route path="/register" element={<RegisterPage />} />
+              <Route path="/login" element={<LoginPage />} />
+            </Route>
+            <Route element={<PrivateRoute />}>
+              <Route path="/contacts" element={<ContactPage />} />
+            </Route>
+            <Route path="*" element={<NotFoundPage />} />
+          </Route>
+        </Routes>
+      </Suspense>
     </div>
   );
 }
