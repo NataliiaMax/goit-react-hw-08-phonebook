@@ -1,5 +1,5 @@
 import { lazy, Suspense, useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { current } from 'redux/users/users-operations';
 import PublicRoute from 'components/PublicRoute/PublicRoute';
@@ -14,7 +14,6 @@ const LoginPage = lazy(() => import('../pages/LoginPages/LoginPages'));
 const ContactPage = lazy(() => import('../pages/ContactPage/ContactPage'));
 const NotFoundPage = lazy(() => import('../pages/NotFoundPage/NotFoundPage'));
 
-
 export default function App() {
   const dispatch = useDispatch();
 
@@ -27,7 +26,8 @@ export default function App() {
       <Suspense fallback={<p>...loading</p>}>
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route index element={<HomePage />} />
+            <Route index element={<Navigate to="home"></Navigate>} />
+            <Route path="home" element={<HomePage />} />
             <Route element={<PublicRoute />}>
               <Route path="/register" element={<RegisterPage />} />
               <Route path="/login" element={<LoginPage />} />
@@ -39,7 +39,7 @@ export default function App() {
           </Route>
         </Routes>
       </Suspense>
-      <ToastContainer/>
+      <ToastContainer />
     </div>
   );
 }

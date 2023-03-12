@@ -12,68 +12,67 @@ const initialState = {
 const userSlice = createSlice({
   name: 'user',
   initialState,
-  extraReducers: builder => {
-    builder
-      .addCase(signup.pending, state => {
-        state.loading = true;
-        state.error = null;
-      })
-      .addCase(signup.fulfilled, (state, { payload }) => {
-        const { user, token } = payload;
-        state.loading = false;
-        state.user = user;
-        state.token = token;
-        state.isLogin = true;
-      })
-      .addCase(signup.rejected, (state, { payload }) => {
-        state.loading = false;
-        state.error = payload;
-      })
-      .addCase(login.pending, state => {
-        state.loading = true;
-        state.error = null;
-      })
-      .addCase(login.fulfilled, (state, { payload }) => {
-        const { user, token } = payload;
-        state.loading = false;
-        state.user = user;
-        state.token = token;
-        state.isLogin = true;
-      })
-      .addCase(login.rejected, (state, { payload }) => {
-        state.loading = false;
-        state.error = payload;
-      })
-      .addCase(current.pending, state => {
-        state.loading = true;
-        state.error = null;
-      })
-      .addCase(current.fulfilled, (state, { payload }) => {
-        const { user, token } = payload;
-        state.loading = false;
-        state.user = user;
-        state.token = token;
-        state.isLogin = true;
-      })
-      .addCase(current.rejected, (state, { payload }) => {
-        state.loading = false;
-        state.token = '';
-        state.error = payload;
-      })
-      .addCase(logout.pending, state => {
-        state.loading = true;
-        state.error = null;
-      })
-      .addCase(logout.fulfilled, state => {
-        state.loading = false;
-        state.user = {};
-        state.token = '';
-        state.isLogin = false;
-      })
-      .addCase(logout.rejected, (state, { payload }) => {
-        state.loading = false;
-        state.error = payload;
-      });
+  extraReducers: {
+    [signup.pending]: store => {
+      store.loading = true;
+      store.error = null;
+    },
+    [signup.fulfilled]: (store, { payload }) => {
+      store.loading = false;
+      store.user = payload.user;
+      store.token = payload.token;
+      store.isLogin = true;
+      console.log(payload.user);
+    },
+    [signup.rejected]: (store, { payload }) => {
+      store.loading = false;
+      store.error = payload;
+    },
+
+    [login.pending]: store => {
+      store.loading = true;
+      store.error = null;
+    },
+    [login.fulfilled]: (store, { payload }) => {
+      store.loading = false;
+      store.user = payload.user;
+      store.token = payload.token;
+      store.isLogin = true;
+    },
+    [login.rejected]: (store, { payload }) => {
+      store.loading = false;
+      store.error = payload;
+    },
+
+    [logout.pending]: store => {
+      store.loading = true;
+      store.error = null;
+    },
+    [logout.fulfilled]: store => {
+      store.loading = false;
+      store.user = {};
+      store.token = '';
+      store.isLogin = false;
+    },
+    [logout.rejected]: (store, { payload }) => {
+      store.loading = false;
+      store.error = payload;
+    },
+
+    [current.pending]: store => {
+      store.loading = true;
+      store.error = null;
+    },
+    [current.fulfilled]: (store, { payload }) => {
+      store.loading = false;
+      store.user = payload;
+      store.isLogin = true;
+    },
+    [current.rejected]: (store, { payload }) => {
+      store.loading = false;
+      store.token = '';
+      store.error = payload;
+    },
   },
 });
 

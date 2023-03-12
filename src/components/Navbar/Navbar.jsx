@@ -1,25 +1,21 @@
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import NavbarContact from './NavbarContact/NavbarContact';
-import UserMenu from './UserMenu/UserMenu';
-import styles from './Navbar.module.css';
 import { isUserLogin } from 'redux/users/users-selectors';
-import items from './items';
+import NavbarContact from './NavbarContact/NavbarContact';
+import style from './Navbar.module.css';
+
+import UserMenu from './UserMenu/UserMenu';
 
 const Navbar = () => {
   const isLogin = useSelector(isUserLogin);
-  const filteredItems = !isLogin ? items.filter(item => !item.private) : items;
-  const elements = filteredItems.map(({ id, text, link }) => (
-    <li key={id}>
-      <NavLink className={styles.link} to={link}>
-        {text}
-      </NavLink>
-    </li>
-  ));
 
   return (
-    <div className={styles.navbar}>
-      <ul className={styles.menu}>{elements}</ul>
+    <div className={style.navbar}>
+      <NavLink to="/" className={style.link}>
+        Home
+      </NavLink>
+      {isLogin && <NavLink to="/contacts">Contacts</NavLink>}
+      {/* {!isLogin ? <UserMenu /> : <NavbarContact />} */}
       {!isLogin && <NavbarContact />}
       {isLogin && <UserMenu />}
     </div>

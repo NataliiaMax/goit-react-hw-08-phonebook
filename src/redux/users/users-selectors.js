@@ -1,6 +1,6 @@
-export const isUserLogin = ({ user }) => user.isLogin;
-export const getUser = ({ user }) => user.user;
-export const getLoginedUser = ({ user }) => {
-  const { isLogin, token } = user;
+export const isUserLogin = state => state.user.isLogin;
+export const getUser = state => state.user.user;
+export const getLoginedUser = state => {
+  const { isLogin, token } = state.user;
   return { isLogin, token };
 };
