@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/674.dfea899c.chunk.css","mappings":"AAAA,2BACA,kBAAkB,CADP,iBACQ,EAEnB,uBACA,yBACA,CAEA,sBACI,kBACJ","sources":["pages/HomePage/HomePage.module.css"],"sourcesContent":[".container{text-align: center;\nmargin-bottom: 25px};\n\n.title{\ntext-transform: capitalize;\n}\n\n.text {\n    margin-bottom: 25px;\n}"],"names":[],"sourceRoot":""}
