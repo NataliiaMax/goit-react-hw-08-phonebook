@@ -19,7 +19,7 @@ export default function ContactForm() {
     const newContacts = {
       id: nanoid(),
       name: name,
-      phone: phone,
+      number: phone,
     };
 
     if (

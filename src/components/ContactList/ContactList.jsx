@@ -16,7 +16,7 @@ export default function ContactList() {
       {normalizedFilterContacts?.map(contact => (
         <li key={contact.id} className={style.itemUser}>
           <p className={style.itemText}>{contact.name}: </p>
-          <p className={style.itemText}>{contact.phone}</p>
+          <p className={style.itemText}>{contact.number}</p>
           <button
             className={style.buttonDelete}
             onClick={id => dispatch(deleteContact(contact.id))}

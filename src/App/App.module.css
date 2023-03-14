@@ -1,5 +1,5 @@
 .container {
   padding: 30px;
   background: linear-gradient(3deg, #e6d16c, #16014c); 
-  height: 500px;
+  height: auto;
 }
