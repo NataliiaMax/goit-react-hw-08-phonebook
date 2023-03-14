@@ -7,6 +7,7 @@ import PrivateRoute from 'components/PrivateRoute/PrivateRoute';
 import Layout from 'components/Layout/Layout';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import style from './App.module.css';
 
 const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
 const RegisterPage = lazy(() => import('../pages/RegisterPage/RegisterPage'));
@@ -22,7 +23,7 @@ export default function App() {
   }, [dispatch]);
 
   return (
-    <div>
+    <div className={style.container}>
       <Suspense fallback={<p>...loading</p>}>
         <Routes>
           <Route path="/" element={<Layout />}>

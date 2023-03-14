@@ -3,12 +3,13 @@ import * as api from '../../shared/services/usersRegistration';
 
 export const signup = createAsyncThunk(
   'user/signup',
-  async (data, { rejectWithValue }) => {
-    try {
-      const { data: result } = await api.signup(data);
+  async (data, { rejectWithValue }) => {try{
+    const result = await api.signup(data);
       return result;
     } catch ({ response }) {
-      return rejectWithValue(response);
+      const { status, statusText } = response;
+      const error = { status, statusText };
+      return rejectWithValue(error);
     }
   }
 );
@@ -17,10 +18,12 @@ export const login = createAsyncThunk(
   'user/login',
   async (data, { rejectWithValue }) => {
     try {
-      const { data: result } = await api.login(data);
+      const result = await api.login(data);
       return result;
     } catch ({ response }) {
-      return rejectWithValue(response);
+      const { status, statusText } = response;
+      const error = { status, statusText };
+      return rejectWithValue(error);
     }
   }
 );
@@ -33,16 +36,10 @@ export const current = createAsyncThunk(
       const data = await api.getCurrent(user.token);
       return data;
     } catch ({ response }) {
-      return rejectWithValue(response);
+      const { status, statusText } = response;
+      const error = { status, statusText };
+      return rejectWithValue(error);
     }
-  },
-  {
-    condition: (_, { getState }) => {
-      const { user } = getState();
-      if (!user.token) {
-        return false;
-      }
-    },
   }
 );
 
@@ -50,10 +47,12 @@ export const logout = createAsyncThunk(
   'user/logout',
   async (_, { rejectWithValue }) => {
     try {
-      const data = await api.logout();
-      return data;
+      const result = await api.logout();
+      return result;
     } catch ({ response }) {
-      return rejectWithValue(response);
+      const { status, statusText } = response;
+      const error = { status, statusText };
+      return rejectWithValue(error);
     }
   }
 );

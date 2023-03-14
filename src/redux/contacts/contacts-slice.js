@@ -16,7 +16,8 @@ const initialState = {
 const contactsSlice = createSlice({
   name: 'contacts',
   initialState,
-  extraReducers: builder => {
+extraReducers:
+    builder => {
     builder
       .addCase(fetchContacts.pending, (state, { payload }) => {
         return { ...state, isLoading: true };
@@ -60,6 +61,6 @@ const contactsSlice = createSlice({
       });
   },
 });
-
+  
 export default contactsSlice.reducer;
 

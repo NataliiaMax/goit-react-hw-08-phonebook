@@ -1,0 +1,19 @@
+ .button {
+     padding: 5px;
+     border: 0px solid transparent;
+     border-radius: 4px;
+     color: darkslategray;
+     background-color: gray;
+     font-weight: bold;
+     position: relative;
+     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 30px rgba(0, 0, 0, 0.1) inset;
+     opacity: 0.8;
+     cursor: pointer;
+ }
+
+ .button:hover,
+ .button:focus {
+     opacity: 1;
+     color: azure;
+     background-color: navy;
+ }

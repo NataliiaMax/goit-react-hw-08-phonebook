@@ -14,8 +14,11 @@ const Navbar = () => {
       <NavLink to="/" className={style.link}>
         Home
       </NavLink>
-      {isLogin && <NavLink to="/contacts">Contacts</NavLink>}
-      {/* {!isLogin ? <UserMenu /> : <NavbarContact />} */}
+      {isLogin && (
+        <NavLink to="/contacts" className={style.link}>
+          Contacts
+        </NavLink>
+      )}
       {!isLogin && <NavbarContact />}
       {isLogin && <UserMenu />}
     </div>
