@@ -12,7 +12,7 @@ export default function Filter() {
   return (
     <label className={style.filterInput} htmlFor={filterId}>
       Find contacts by name
-      <input
+      <input className={style.filterInput}
         name="filter"
         id={filterId}
         type="text"

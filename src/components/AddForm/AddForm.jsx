@@ -53,7 +53,7 @@ export default function ContactForm() {
     <form onSubmit={handleSubmit}>
       <div className={style.containerInput}>
         <label htmlFor={nameId} className={style.formLabel}>
-          Name
+          <span className={style.text}>Name</span>
           <input
             className={style.formInput}
             value={name}
@@ -67,7 +67,7 @@ export default function ContactForm() {
           />
         </label>
         <label htmlFor={numberId} className={style.formLabel}>
-          Number
+          <span className={style.text}> Number</span>
           <input
             className={style.formInput}
             id={numberId}

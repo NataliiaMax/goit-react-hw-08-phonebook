@@ -13,7 +13,7 @@ const UserMenu = () => {
 
   return (
     <div>
-      {name},{' '}
+      <span className={style.name}>{name},</span>{' '}
       <button className={style.button} onClick={onLogout}>
         logout!
       </button>

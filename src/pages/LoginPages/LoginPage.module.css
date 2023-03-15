@@ -1,0 +1,9 @@
+.container{
+    margin: auto;
+}
+
+.pageTitle{
+    font-style:oblique;
+    color:darkgray;
+    text-align: center;
+}

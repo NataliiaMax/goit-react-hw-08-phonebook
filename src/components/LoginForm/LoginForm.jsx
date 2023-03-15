@@ -1,3 +1,4 @@
+import React from 'react';
 import TextField from 'shared/components/TextField/TextField';
 import useForm from 'shared/hook/useForm';
 import fields from './fields';
@@ -11,15 +12,16 @@ const LoginForm = ({ onSubmit }) => {
     onSubmit,
   });
   const { email, password } = state;
+
   return (
     <form className={style.form} onSubmit={handleSubmit}>
-           <TextField value={email} handleChange={handleChange} {...fields.email} />
+      <TextField value={email} handleChange={handleChange} {...fields.email} />{' '}
       <TextField
         value={password}
         handleChange={handleChange}
         {...fields.password}
       />
-      <Button>Login</Button>
+      <Button className={style.btn}>Login</Button>
     </form>
   );
 };

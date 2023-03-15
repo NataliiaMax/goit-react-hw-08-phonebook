@@ -4,6 +4,8 @@
     border-radius: 5px;
     padding: 10px 15px;
     cursor: pointer;
+    display: flex;
+    margin: auto;
 }
 
 .button:hover {

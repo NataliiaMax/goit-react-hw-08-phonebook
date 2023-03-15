@@ -4,14 +4,17 @@
   margin-bottom: 15px;
 }
 
+.formInput {
+  border-radius: 10px;
+}
+
 .buttonForm {
   display: block;
   padding: 5px 15px;
   margin: 0 auto;
-  background-color: #fff;
-  border: 1px solid #747474;
+  background-color: transparent;
   border-radius: 5px;
   font-weight: 700;
-  color: #555;
+  color: black;
   cursor: pointer;
 }

@@ -1,12 +1,20 @@
+import { motion, AnimatePresence } from 'framer-motion';
 import style from './HomePage.module.css';
-import 'animate.css';
 
 const HomePage = () => {
   return (
     <div className={style.container}>
-      <h1 className={style.title} class="animate__animated animate__fadeInDown">
-        Phonebook
-      </h1>
+      <AnimatePresence>
+        <motion.h1
+          className={style.title}
+          initial="initial"
+          animate="animate"
+          exit="exit"
+          transition="transition"
+        >
+          Phonebook
+        </motion.h1>
+      </AnimatePresence>
       <p className={style.text}>
         To start working, create your account or log in to your page
       </p>
@@ -14,4 +22,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage
+export default HomePage;

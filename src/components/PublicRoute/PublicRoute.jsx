@@ -1,13 +1,14 @@
 import { Navigate, Outlet } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-
 import { getUser } from 'redux/users/users-selectors';
+import Loader from 'components/Loader/Loader';
 
-const PublicRoute = () => {
+const PublicRoute = () =>
+{
   const { isLogin, token } = useSelector(getUser);
 
   if (!isLogin && token) {
-    return <p>...Loading</p>;
+    return <Loader/>;
   }
 
   if (isLogin) {

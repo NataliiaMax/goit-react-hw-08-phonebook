@@ -19,9 +19,8 @@ const Navbar = () => {
           Contacts
         </NavLink>
       )}
-      {!isLogin && <NavbarContact />}
-      {isLogin && <UserMenu />}
-    </div>
+      {!isLogin ? <NavbarContact /> : <UserMenu/>}
+       </div>
   );
 };
 

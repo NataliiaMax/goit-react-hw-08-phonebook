@@ -12,11 +12,13 @@ export default function ContactList() {
   });
 
   return (
-    <ul className={style.listUsers}>
+    <ol className={style.listUsers}>
       {normalizedFilterContacts?.map(contact => (
         <li key={contact.id} className={style.itemUser}>
-          <p className={style.itemText}>{contact.name}: </p>
-          <p className={style.itemText}>{contact.number}</p>
+          <div className={style.wrapper}>
+            <p className={style.itemText}>{contact.name}:</p>
+            <p className={style.itemText}> {contact.number}</p>
+          </div>
           <button
             className={style.buttonDelete}
             onClick={id => dispatch(deleteContact(contact.id))}
@@ -25,6 +27,6 @@ export default function ContactList() {
           </button>
         </li>
       ))}
-    </ul>
+    </ol>
   );
 }
