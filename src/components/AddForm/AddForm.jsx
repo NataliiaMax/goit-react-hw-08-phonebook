@@ -93,14 +93,4 @@ export default function ContactForm() {
   );
 }
 
-// ContactForm.propTypes = {
-//   contacts: PropTypes.arrayOf(
-//     PropTypes.shape({
-//       id: PropTypes.string.isRequired,
-//       name: PropTypes.string.isRequired,
-//       number: PropTypes.string.isRequired,
-//     })
-//   ),
-//   isLoading: PropTypes.bool.isRequired,
-//   onSubmit: PropTypes.func.isRequired,
-// };
+

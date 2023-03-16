@@ -25,7 +25,7 @@ export default function App() {
 
   return (
     <div className={style.container}>
-      <Suspense fallback={<Loader/>}>
+      <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Navigate to="home"></Navigate>} />

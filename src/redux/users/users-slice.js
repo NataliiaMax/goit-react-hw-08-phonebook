@@ -22,7 +22,6 @@ const userSlice = createSlice({
       store.user = payload.user;
       store.token = payload.token;
       store.isLogin = true;
-      console.log(payload.user);
     },
     [signup.rejected]: (store, { payload }) => {
       store.loading = false;
@@ -61,7 +60,6 @@ const userSlice = createSlice({
 
     [current.pending]: store => {
       store.loading = true;
-      store.error = null;
     },
     [current.fulfilled]: (store, { payload }) => {
       store.loading = false;
@@ -70,8 +68,6 @@ const userSlice = createSlice({
     },
     [current.rejected]: (store, { payload }) => {
       store.loading = false;
-      store.token = '';
-      store.error = payload;
     },
   },
 });

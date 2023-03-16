@@ -1,14 +1,17 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { toast } from 'react-toastify';
 import * as api from '../../shared/services/usersRegistration';
 
 export const signup = createAsyncThunk(
   'user/signup',
-  async (data, { rejectWithValue }) => {try{
-    const result = await api.signup(data);
+  async (data, { rejectWithValue }) => {
+    try {
+      const result = await api.signup(data);
       return result;
     } catch ({ response }) {
       const { status, statusText } = response;
       const error = { status, statusText };
+      toast.error('Enter correct data');
       return rejectWithValue(error);
     }
   }
@@ -23,6 +26,7 @@ export const login = createAsyncThunk(
     } catch ({ response }) {
       const { status, statusText } = response;
       const error = { status, statusText };
+      toast.error('Enter correct data');
       return rejectWithValue(error);
     }
   }

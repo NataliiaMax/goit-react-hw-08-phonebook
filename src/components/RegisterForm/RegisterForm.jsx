@@ -4,8 +4,8 @@ import fields from './fields';
 import initialState from './initialState';
 import Button from 'shared/components/Button/Button';
 import style from './RegisterForm.module.css';
-// import { useState } from 'react';
 import { PropTypes } from 'prop-types';
+// import { useState } from 'react';
 
 
 const RegisterForm = ({ onSubmit }) => {
@@ -14,6 +14,7 @@ const RegisterForm = ({ onSubmit }) => {
     onSubmit,
   });
   const { name, email, password } = state;
+  
   return (
     <form className={style.form} onSubmit={handleSubmit}>
       <TextField value={name} handleChange={handleChange} {...fields.name} />
@@ -24,7 +25,7 @@ const RegisterForm = ({ onSubmit }) => {
   );
 };
 
-// // export default RegisterForm;
+// export default RegisterForm;
 
 
 
@@ -54,15 +55,15 @@ const RegisterForm = ({ onSubmit }) => {
 //   };
 
 //   return (
-//     <form className={styles.form} onSubmit={hanldeSubmit}>
-//       <label className={styles.label}>
-//         <span className={styles.text}>Name</span>
+//     <form className={style.form} onSubmit={hanldeSubmit}>
+//       <label className={style.label}>
+//         <span className={style.text}>Name</span>
 //         <input
 //           type="text"
 //           name="name"
 //           placeholder="Your name"
 //           aria-label="Input for your name"
-//           className={styles.input}
+//           className={style.input}
 //           value={name}
 //           onChange={hanldeChange}
 //           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -71,36 +72,36 @@ const RegisterForm = ({ onSubmit }) => {
 //         />
 //       </label>
 
-//       <label className={styles.label}>
-//         <span className={styles.text}>Email</span>
+//       <label className={style.label}>
+//         <span className={style.text}>Email</span>
 //         <input
 //           type="email"
 //           name="email"
 //           value={email}
 //           onChange={hanldeChange}
-//           className={styles.input}
+//           className={style.input}
 //           placeholder="Your e-mail"
 //           aria-label="Input for your Email"
 //           required
 //         />
 //       </label>
 
-//       <label className={styles.label}>
-//         <span className={styles.text}>Password</span>
+//       <label className={style.label}>
+//         <span className={style.text}>Password</span>
 //         <input
 //           type="password"
 //           name="password"
 //           value={password}
 //           onChange={hanldeChange}
-//           className={styles.input}
+//           className={style.input}
 //           placeholder="Should be at least 7 characters"
 //           aria-label="Input for your password"
 //           required
 //         />
 //       </label>
 
-//       <div className={styles.container}>
-//         <button type="submit" className={styles.button}>
+//       <div className={style.container}>
+//         <button type="submit" className={style.button}>
 //           Create account
 //         </button>
 //       </div>

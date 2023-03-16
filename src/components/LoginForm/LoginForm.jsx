@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import TextField from 'shared/components/TextField/TextField';
 import useForm from 'shared/hook/useForm';
 import fields from './fields';
@@ -24,6 +25,10 @@ const LoginForm = ({ onSubmit }) => {
       <Button className={style.btn}>Login</Button>
     </form>
   );
+};
+
+LoginForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
 };
 
 export default LoginForm;
