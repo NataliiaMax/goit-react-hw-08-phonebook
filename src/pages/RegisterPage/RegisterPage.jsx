@@ -9,7 +9,7 @@ const RegisterPage = () => {
 
   return (
     <div className={style.container}>
-      <h2 className={style.title}>RegisterPage</h2>
+      <h2 className={style.title}>Create your account please</h2>
       <RegisterForm onSubmit={handleSignup} />
     </div>
   );

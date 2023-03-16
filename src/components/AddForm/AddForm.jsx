@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { addContact } from 'redux/contacts/contacts-operations';
 import { nanoid } from 'nanoid';
+import { toast } from 'react-toastify';
 import style from './AddForm.module.css';
 
 export default function ContactForm() {
@@ -28,9 +29,13 @@ export default function ContactForm() {
           contact.name.toLowerCase().trim() === name.toLowerCase().trim()
       )
     ) {
-      return alert(`${name} is already in contacts`);
+      return toast.info(`${name} is already in contacts`);
     }
     dispatch(addContact(newContacts));
+    resetForm();
+  };
+
+  const resetForm = () => {
     setName('');
     setPhone('');
   };
@@ -87,3 +92,15 @@ export default function ContactForm() {
     </form>
   );
 }
+
+// ContactForm.propTypes = {
+//   contacts: PropTypes.arrayOf(
+//     PropTypes.shape({
+//       id: PropTypes.string.isRequired,
+//       name: PropTypes.string.isRequired,
+//       number: PropTypes.string.isRequired,
+//     })
+//   ),
+//   isLoading: PropTypes.bool.isRequired,
+//   onSubmit: PropTypes.func.isRequired,
+// };

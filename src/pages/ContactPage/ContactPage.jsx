@@ -22,11 +22,9 @@ const ContactPage = () => {
       <h1 className={style.titleBook}>Phonebook</h1>
       <ContactForm />
       <h2 className={style.titleContacts}>Contacts</h2>
-      {error && <h2>...Error</h2>}
-      {isLoading && (
-        <h3>
+      {error && toast.error('Oops! Error')}
+      {isLoading && (      
           <Loader />
-        </h3>
       )}
       {addedContacts.length > 0 ? (
         <>
