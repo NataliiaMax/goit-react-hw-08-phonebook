@@ -4,3 +4,4 @@ export const getLoginedUser = state => {
   const { isLogin, token } = state.user;
   return { isLogin, token };
 };
+export const isUserError = state => state.user.error;

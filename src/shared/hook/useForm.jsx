@@ -1,4 +1,6 @@
 import { useState, useCallback } from 'react';
+import { useSelector } from 'react-redux';
+import { isUserError } from 'redux/users/users-selectors';
 
 const useForm = ({ initialState, onSubmit }) => {
   const [state, setState] = useState({ ...initialState });
@@ -12,11 +14,16 @@ const useForm = ({ initialState, onSubmit }) => {
     },
     [setState]
   );
+  
+  const isError = useSelector(isUserError);
 
   const handleSubmit = e => {
     e.preventDefault();
     onSubmit({ ...state });
     setState({ ...initialState });
+    if (isError) {
+      setState(state);
+    }
   };
 
   return { state, setState, handleChange, handleSubmit };
