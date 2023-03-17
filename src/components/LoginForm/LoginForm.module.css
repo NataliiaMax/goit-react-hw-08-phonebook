@@ -5,3 +5,26 @@
     border: 1px solid darkgray;
     border-radius: 4px;
 }
+
+.field{
+    margin-bottom: 25px;
+margin-top: 15px;
+border: transparent;
+background-color: transparent;
+border-bottom: 1px solid white;
+outline: none;
+color: white;
+height: 20px;
+font-family: inherit;
+font-size: 18px;}
+
+.field::placeholder {
+    color: rgba(255, 255, 255, 0.56);
+}
+
+.field:focus {
+    outline: none;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+
