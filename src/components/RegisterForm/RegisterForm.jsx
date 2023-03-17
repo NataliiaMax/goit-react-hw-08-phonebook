@@ -5,8 +5,6 @@ import initialState from './initialState';
 import Button from 'shared/components/Button/Button';
 import style from './RegisterForm.module.css';
 import { PropTypes } from 'prop-types';
-// import { useState } from 'react';
-
 
 const RegisterForm = ({ onSubmit }) => {
   const { state, handleChange, handleSubmit } = useForm({
